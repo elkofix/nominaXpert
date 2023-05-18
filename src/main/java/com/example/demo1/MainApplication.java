@@ -6,16 +6,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Application extends javafx.application.Application {
+public class MainApplication extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         loadWindow("start-view.fxml");
     }
 
-    public FXMLLoader loadWindow(String FXML) {
+    public static FXMLLoader loadWindow(String FXML) {
         FXMLLoader fxmlLoader = null;
         try {
-            fxmlLoader = new FXMLLoader(Application.class.getResource(FXML));
+            fxmlLoader = new FXMLLoader(MainApplication.class.getResource(FXML));
             Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
             Stage stage = new Stage();
             stage.setTitle("NominaXpert");

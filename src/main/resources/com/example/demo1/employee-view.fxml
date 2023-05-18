@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.controller.EmployeeController">
+   <center>
+       <ScrollPane fx:id="employeeSP">
+          <TableView fx:id="employeeTV" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="702.0" prefWidth="1838.0" BorderPane.alignment="CENTER">
+            <columns>
+              <TableColumn prefWidth="75.0" text="APELLIDOS" />
+              <TableColumn prefWidth="75.0" text="NOMBRES" />
+                <TableColumn prefWidth="75.0" text="CARGOS" />
+                <TableColumn prefWidth="101.20001220703125" text="CLASIFICACIÓN" />
+                <TableColumn prefWidth="75.0" text="Devengado">
+                   <columns>
+                      <TableColumn prefWidth="75.0" text="SUELDO" />
+                      <TableColumn prefWidth="75.0" text="AUXTRANS" />
+                      <TableColumn prefWidth="75.0" text="TOTAL" />
+                   </columns>
+                </TableColumn>
+                <TableColumn prefWidth="108.20001220703125" text="DEDUCCIONES">
+                   <columns>
+                      <TableColumn prefWidth="75.0" text="SALUD" />
+                      <TableColumn prefWidth="75.0" text="PENSIÓN" />
+                      <TableColumn prefWidth="75.0" text="TOTAL" />
+                   </columns>
+                </TableColumn>
+                <TableColumn prefWidth="75.0" text="SEGURIDAD SOCIAL">
+                   <columns>
+                      <TableColumn prefWidth="75.0" text="SALUD" />
+                      <TableColumn prefWidth="75.0" text="PENSIÓN" />
+                      <TableColumn prefWidth="75.0" text="ATEP" />
+                      <TableColumn prefWidth="75.0" text="TOTAL" />
+                   </columns></TableColumn>
+                <TableColumn maxWidth="1.7976931348623157E308" prefWidth="367.0" text="PRESTACIONES SOCIALES">
+                   <columns>
+                      <TableColumn prefWidth="75.0" text="CESANTÍA" />
+                      <TableColumn prefWidth="88.79998779296875" text="PRIMA LEGAL" />
+                      <TableColumn prefWidth="84.0" text="VACACIONES" />
+                      <TableColumn prefWidth="86.2000732421875" text="INTERESES CS" />
+                      <TableColumn prefWidth="45.7999267578125" text="TOTAL" />
+                   </columns>
+                </TableColumn>
+                <TableColumn prefWidth="75.0" text="APORTES PARAFISCALES">
+                   <columns>
+                      <TableColumn prefWidth="75.0" text="CAJA COMP" />
+                      <TableColumn prefWidth="75.0" text="SENA" />
+                      <TableColumn prefWidth="75.0" text="ICBF" />
+                      <TableColumn prefWidth="75.0" text="TOTAL" />
+                   </columns>
+                </TableColumn>
+            </columns>
+          </TableView>
+        </ScrollPane>
+   </center>
+   <top>
+      <Label text="Label" BorderPane.alignment="CENTER_LEFT">
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin></Label>
+   </top>
+</BorderPane>

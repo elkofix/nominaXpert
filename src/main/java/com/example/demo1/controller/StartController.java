@@ -1,11 +1,13 @@
 package com.example.demo1.controller;
 
+import com.example.demo1.MainApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,4 +33,9 @@ public class StartController implements Initializable {
         liqNominaBtn.setGraphic(new ImageView(image2));
     }
 
+    public void onManageEmployee(ActionEvent actionEvent) {
+        MainApplication.loadWindow("employee-view.fxml");
+        Stage stage = (Stage) liqNominaBtn.getScene().getWindow();
+        stage.close();
+    }
 }
