@@ -33,6 +33,7 @@ public class Worker {
         this.Cargo = cargo;
         this.sueldo = sueldo;
         this.diasTrabajados = diasTrabajados;
+        this.sueldoDevengado = getSueldoDevengado();
         this.auxTransporte = getAuxTransporte();
         this.totDevengado = getTotDevengado();
         this.salud = getSalud();
@@ -127,7 +128,13 @@ public class Worker {
     }
 
     public double getSaludSeguridad() {
-        return getSueldo() * 0.085;
+        double saludSeguridad = 0;
+        if (getSueldoDevengado() < 11600000) {
+            saludSeguridad = 0;
+        } else {
+            saludSeguridad = getSueldoDevengado() * 0.04;
+        }
+        return saludSeguridad;
     }
 
     public double getPensionSeguridad() {
