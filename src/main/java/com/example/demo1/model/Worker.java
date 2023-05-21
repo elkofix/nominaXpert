@@ -1,10 +1,13 @@
 package com.example.demo1.model;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class Worker {
     private String name;
     private String lastname;
-    private String Cargo;
-    private double sueldo;
+    private String charge;
+    private int salary;
     private int diasTrabajados;
     private double sueldoDevengado;
     private double auxTransporte;
@@ -25,14 +28,33 @@ public class Worker {
     private double cajaComp;
     private double sena;
     private double icbf;
+
+    public LocalDate getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(LocalDate entryDate) {
+        this.entryDate = entryDate;
+    }
+
+    private LocalDate entryDate;
     private double totParafiscales;
 
-    public Worker(String name, String lastname, String cargo, double sueldo, int diasTrabajados) {
-        this.name = name;
-        this.lastname = lastname;
-        this.Cargo = cargo;
-        this.sueldo = sueldo;
-        this.diasTrabajados = diasTrabajados;
+    public Worker(String name, String cargo, double sueldo, LocalDate entryDate) {
+        String[] n = name.split(" ");
+        if(n.length==4){
+            this.name = (n[0]+" "+n[1]).toUpperCase();
+            this.lastname = (n[2]+" "+n[3]).toUpperCase();
+        } else if (n.length==3) {
+            this.name = n[0].toUpperCase();
+            this.lastname = (n[1]+" "+n[2]).toUpperCase();
+        }
+
+        this.entryDate = entryDate;
+        this.charge = cargo.toUpperCase();
+        this.salary =(int)sueldo;
+        LocalDate date = java.time.LocalDate.now();
+        this.diasTrabajados = date.getDayOfMonth();
         this.sueldoDevengado = getSueldoDevengado();
         this.auxTransporte = getAuxTransporte();
         this.totDevengado = getTotDevengado();
@@ -63,12 +85,12 @@ public class Worker {
         return lastname;
     }
 
-    public String getCargo() {
-        return Cargo;
+    public String getCharge() {
+        return charge;
     }
 
-    public double getSueldo() {
-        return sueldo;
+    public double getSalary() {
+        return salary;
     }
 
     public int getDiasTrabajados() {
@@ -76,12 +98,12 @@ public class Worker {
     }
 
     public double getSueldoDevengado() {
-        return (getSueldo() * getDiasTrabajados()) / 30;
+        return (getSalary() * getDiasTrabajados()) / 30;
     }
 
     public double getAuxTransporte() {
         double auxTransporte = 0;
-        if (getSueldo() < 2320000) {
+        if (getSalary() < 2320000) {
             auxTransporte = 140606 * getDiasTrabajados() / 30;
         }
         return auxTransporte;
@@ -116,7 +138,7 @@ public class Worker {
     }
 
     public double getVacaciones() {
-        return getSueldo() * 0.0417;
+        return getSalary() * 0.0417;
     }
 
     public double getInteresesCS() {
@@ -138,11 +160,11 @@ public class Worker {
     }
 
     public double getPensionSeguridad() {
-        return getSueldo() * 0.12;
+        return getSalary() * 0.12;
     }
 
     public double getAtep() {
-        return getSueldo() * 0.02436;
+        return getSalary() * 0.02436;
     }
 
     public double getTotSeguridad() {
@@ -150,15 +172,15 @@ public class Worker {
     }
 
     public double getCajaComp() {
-        return getSueldo() * 0.04;
+        return getSalary() * 0.04;
     }
 
     public double getSena() {
-        return getSueldo() * 0.02;
+        return getSalary() * 0.02;
     }
 
     public double getIcbf() {
-        return getSueldo() * 0.03;
+        return getSalary() * 0.03;
     }
 
     public double getTotParafiscales() {

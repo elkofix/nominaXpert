@@ -1,6 +1,7 @@
 package com.example.demo1.controller;
 
 import com.example.demo1.MainApplication;
+import com.example.demo1.model.WorkerList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,7 +35,14 @@ public class StartController implements Initializable {
     }
 
     public void onManageEmployee(ActionEvent actionEvent) {
-        MainApplication.loadWindow("employee-view.fxml");
+        EmployeeController con = (EmployeeController)MainApplication.loadWindow("employee-view.fxml").getController();
+        con.initialize();
+        Stage stage = (Stage) liqNominaBtn.getScene().getWindow();
+        stage.close();
+    }
+
+    public void onEmployees(ActionEvent actionEvent) {
+        MainApplication.loadWindow("manage-view.fxml");
         Stage stage = (Stage) liqNominaBtn.getScene().getWindow();
         stage.close();
     }
