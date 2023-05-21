@@ -4,37 +4,44 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.controller.AddEmployeeController">
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Nombre Completo" textAlignment="JUSTIFY" />
-            <TextField>
+            <TextField fx:id="fullNameTF">
                <VBox.margin>
                   <Insets left="50.0" right="50.0" />
                </VBox.margin></TextField>
             <Label text="Cargo" />
-            <TextField>
+            <TextField fx:id="chargeTF">
                <VBox.margin>
                   <Insets left="50.0" right="50.0" />
                </VBox.margin></TextField>
             <Label text="Salario" />
-            <TextField>
+            <TextField fx:id="salaryTF">
                <VBox.margin>
                   <Insets left="50.0" right="50.0" />
                </VBox.margin>
             </TextField>
-            <ComboBox prefHeight="25.0" prefWidth="168.0" promptText="Tipo de Mano de obra">
+            <ComboBox fx:id="manoObraCB" prefHeight="25.0" prefWidth="168.0" promptText="Tipo de Mano de obra">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin></ComboBox>
             <Label text="Fecha de entrada" />
-            <DatePicker>
+            <DatePicker fx:id="entryDateDP">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin></DatePicker>
-            <Button mnemonicParsing="false" text="Agregar" />
+            <Button mnemonicParsing="false" text="Agregar" onAction="#onAddWorker"/>
          </children>
       </VBox>
    </center>
+   <top>
+      <Button fx:id="backBtn" onAction="#onGoBack" mnemonicParsing="false" BorderPane.alignment="TOP_RIGHT">
+         <BorderPane.margin>
+            <Insets right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </top>
 </BorderPane>

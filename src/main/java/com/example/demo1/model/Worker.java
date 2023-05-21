@@ -9,6 +9,8 @@ public class Worker {
     private String charge;
     private int salary;
     private int diasTrabajados;
+
+    private MANPOWERTYPE manpowertype;
     private double sueldoDevengado;
     private double auxTransporte;
     private double totDevengado;
@@ -40,7 +42,7 @@ public class Worker {
     private LocalDate entryDate;
     private double totParafiscales;
 
-    public Worker(String name, String cargo, double sueldo, LocalDate entryDate) {
+    public Worker(String name, String cargo, double sueldo, LocalDate entryDate, MANPOWERTYPE manpowertype) {
         String[] n = name.split(" ");
         if(n.length==4){
             this.name = (n[0]+" "+n[1]).toUpperCase();
@@ -49,7 +51,7 @@ public class Worker {
             this.name = n[0].toUpperCase();
             this.lastname = (n[1]+" "+n[2]).toUpperCase();
         }
-
+        this.manpowertype = manpowertype;
         this.entryDate = entryDate;
         this.charge = cargo.toUpperCase();
         this.salary =(int)sueldo;

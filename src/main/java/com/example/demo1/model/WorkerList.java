@@ -8,7 +8,6 @@ public class WorkerList {
     public ObservableList<Worker> workerList = FXCollections.observableArrayList();
 
     public WorkerList() {
-        addWorker(new Worker("John Doe Smith", "Operator", 10000000, java.time.LocalDate.now()));
     }
 
     public void addWorker(Worker worker){

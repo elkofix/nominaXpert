@@ -4,6 +4,7 @@ import com.example.demo1.MainApplication;
 import com.example.demo1.model.WorkerList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -35,8 +36,10 @@ public class StartController implements Initializable {
     }
 
     public void onManageEmployee(ActionEvent actionEvent) {
-        EmployeeController con = (EmployeeController)MainApplication.loadWindow("employee-view.fxml").getController();
-        con.initialize();
+        FXMLLoader fxmlLoader = MainApplication.loadWindow("employee-view.fxml");
+        EmployeeController controller = fxmlLoader.getController();
+        System.out.println(new WorkerList());
+        controller.initialize(new WorkerList());
         Stage stage = (Stage) liqNominaBtn.getScene().getWindow();
         stage.close();
     }
