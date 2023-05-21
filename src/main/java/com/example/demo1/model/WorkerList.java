@@ -10,6 +10,10 @@ public class WorkerList {
     public WorkerList() {
     }
 
+    public void deleteWorker(Worker worker){
+        workerList.remove(worker);
+    }
+
     public void addWorker(Worker worker){
         this.workerList.add(worker);
     }

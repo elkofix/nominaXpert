@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -20,7 +21,10 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class EmployeeController implements Initializable {
+public class EmployeeController {
+
+    @FXML
+    public TableColumn<Worker, Void> deleteColumn;
 
     @FXML
     public Button addBtn;
@@ -50,6 +54,15 @@ public class EmployeeController implements Initializable {
     public BorderPane borderPane;
 
 
+    public WorkerList getWorkerList() {
+        return workerList;
+    }
+
+    public void setWorkerList(WorkerList workerList) {
+        System.out.println("Init");
+        this.workerList = workerList;
+    }
+
     private WorkerList workerList;
 
     public void onAddEmployee(ActionEvent actionEvent) {
@@ -69,13 +82,28 @@ public class EmployeeController implements Initializable {
         this.salaryCol.setCellFactory(column -> new DecimalCell());
         this.workDaysCol.setCellValueFactory(new PropertyValueFactory<>("diasTrabajados"));
         this.starDateCol.setCellValueFactory(new PropertyValueFactory<>("entryDate"));
-        this.employeesTB.setItems(this.workerList.getWorkerList());
+        this.deleteColumn.setCellFactory(column -> new TableCell<Worker, Void>() {
+            private final Button button = new Button("Borrar");
+            {
+                button.setOnAction(event -> {
+                    Worker person = getTableRow().getItem();
+                    workerList.deleteWorker(person);
+                    employeesTB.setItems(workerList.getWorkerList());
+                });
+            }
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(button);
+                }
+            }
+        });
+        this.employeesTB.setItems(getWorkerList().getWorkerList());
         employeesTB.prefWidthProperty().bind(borderPane.widthProperty());
         employeesTB.prefHeightProperty().bind(borderPane.heightProperty());
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        initialize(new WorkerList());
-    }
 }
