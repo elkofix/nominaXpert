@@ -2,6 +2,7 @@ package com.example.demo1.controller;
 
 import com.example.demo1.MainApplication;
 import com.example.demo1.exceptions.LowSalaryException;
+import com.example.demo1.model.FileManager;
 import com.example.demo1.model.MANPOWERTYPE;
 import com.example.demo1.model.Worker;
 import com.example.demo1.model.WorkerList;
@@ -108,6 +109,8 @@ public class AddEmployeeController implements Initializable {
             }else{
                 workerList.editWorker(current, worker);
             }
+            FileManager.setWorkerList(workerList);
+            FileManager.saveData();
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error al agregar");

@@ -159,6 +159,30 @@ public class Worker {
         return getCesantia() + getPrimaLegal() + getVacaciones() + getInteresesCS();
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setCharge(String charge) {
+        this.charge = charge;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public void setDiasTrabajados(int diasTrabajados) {
+        this.diasTrabajados = diasTrabajados;
+    }
+
+    public void setSueldoDevengado(double sueldoDevengado) {
+        this.sueldoDevengado = sueldoDevengado;
+    }
+
     public double getSaludSeguridad() {
         double saludSeguridad = 0;
         if (getSueldoDevengado() < 11600000) {

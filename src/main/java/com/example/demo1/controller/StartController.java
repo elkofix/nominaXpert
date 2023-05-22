@@ -13,12 +13,21 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class StartController implements Initializable {
     @FXML
     public Button addEmployeeBtn;
 
+
+    public WorkerList getWorkerList() {
+        return workerList;
+    }
+
+    public void setWorkerList(WorkerList workerList) {
+        this.workerList = workerList;
+    }
 
     @FXML
     WorkerList workerList;
@@ -48,9 +57,7 @@ public class StartController implements Initializable {
 
     public void onEmployees(ActionEvent actionEvent) {
         EmployeeController a = MainApplication.loadWindow("manage-view.fxml").getController();
-        WorkerList aa = new WorkerList();
-        System.out.println(aa);
-        a.initialize(aa);
+        a.initialize(Objects.requireNonNullElseGet(workerList, WorkerList::new));
         Stage stage = (Stage) liqNominaBtn.getScene().getWindow();
         stage.close();
     }

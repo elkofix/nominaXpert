@@ -71,7 +71,6 @@ public class EmployeeController {
 
     public void onAddEmployee(ActionEvent actionEvent) {
         AddEmployeeController con = MainApplication.loadWindow("add-employee-view.fxml").getController();
-        System.out.println(workerList);
         con.initialize(this.workerList);
         Stage stage = (Stage) addBtn.getScene().getWindow();
         stage.close();
