@@ -36,7 +36,7 @@ public class FileManager {
         return instance;
     }
     public static void importData(){
-        File result = new File(System.getProperty("user.dir")+"/resources/data/dat.json");
+        File result = new File(System.getProperty("user.dir")+"/src/main/resources/data/data.json");
         try {
             FileInputStream fis = new FileInputStream(result);
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
@@ -55,8 +55,8 @@ public class FileManager {
     }
 
     public static void saveData(){
-        File dataDirectory = new File(System.getProperty("user.dir")+"/resources/data");
-        File result = new File(System.getProperty("user.dir")+"/resources/data/dat.json");
+        File dataDirectory = new File(System.getProperty("user.dir")+"/src/main/resources/data");
+        File result = new File(System.getProperty("user.dir")+"/src/main/resources/data/data.json");
 
         if(!dataDirectory.exists()){
             dataDirectory.mkdirs();

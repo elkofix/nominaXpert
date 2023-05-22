@@ -10,6 +10,7 @@ public class WorkerAdapter implements JsonSerializer<Worker>, JsonDeserializer<W
     public JsonElement serialize(Worker worker, Type type, JsonSerializationContext context) {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("name", worker.getName());
+        jsonObject.addProperty("lastname", worker.getLastname());
         jsonObject.addProperty("cargo", worker.getCharge());
         jsonObject.addProperty("sueldo", worker.getSalary());
         jsonObject.addProperty("entryDate", worker.getEntryDate().toString());
@@ -23,6 +24,7 @@ public class WorkerAdapter implements JsonSerializer<Worker>, JsonDeserializer<W
     public Worker deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = jsonElement.getAsJsonObject();
         String name = jsonObject.get("name").getAsString();
+        name += " "+jsonObject.get("lastname").getAsString();
         String cargo = jsonObject.get("cargo").getAsString();
         double sueldo = jsonObject.get("sueldo").getAsDouble();
         LocalDate entryDate = LocalDate.parse(jsonObject.get("entryDate").getAsString());

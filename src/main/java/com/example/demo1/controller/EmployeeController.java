@@ -2,6 +2,7 @@ package com.example.demo1.controller;
 
 import com.example.demo1.MainApplication;
 import com.example.demo1.model.DecimalCell;
+import com.example.demo1.model.FileManager;
 import com.example.demo1.model.Worker;
 import com.example.demo1.model.WorkerList;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -90,8 +91,11 @@ public class EmployeeController {
 
             {
                 button.setOnAction(event -> {
+
                     Worker person = getTableRow().getItem();
                     workerList.deleteWorker(person);
+                    FileManager.setWorkerList(getWorkerList());
+                    FileManager.saveData();
                     employeesTB.setItems(workerList.getWorkerList());
                 });
             }
