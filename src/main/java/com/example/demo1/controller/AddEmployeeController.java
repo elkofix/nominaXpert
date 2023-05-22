@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -32,12 +33,15 @@ public class AddEmployeeController implements Initializable {
 
     @FXML
     public DatePicker entryDateDP;
+    public Button addBtn;
 
-
+    private boolean edit;
 
     @FXML
     public ComboBox<MANPOWERTYPE> manoObraCB;
     private WorkerList workerList;
+
+    private Worker current;
 
     @FXML
     public Button backBtn;
@@ -52,7 +56,23 @@ public class AddEmployeeController implements Initializable {
         });
     }
 
+    public void initialize(Worker worker, WorkerList workerList){
+        initialize(workerList);
+        fullNameTF.setText(worker.getName()+" "+worker.getLastname());
+        chargeTF.setText(worker.getCharge());
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+        salaryTF.setText(decimalFormat.format(worker.getSalary()));
+        entryDateDP.setValue(worker.getEntryDate());
+        manoObraCB.setValue(worker.getManpowertype());
+        current = worker;
+        edit = true;
+        addBtn.setText("Confirmar");
+    }
+
     public void initialize(WorkerList workerList){
+        if(!edit){
+            addBtn.setText("Agregar");
+        }
         this.workerList = workerList;
 
     }
@@ -83,7 +103,11 @@ public class AddEmployeeController implements Initializable {
                 throw new LowSalaryException("El salario debe ser mayor o igual a 1.160.000");
             }
             Worker worker = new Worker(fullName, charge, Double.parseDouble(salary), entryDate, type);
-            workerList.addWorker(worker);
+            if(!edit){
+                workerList.addWorker(worker);
+            }else{
+                workerList.editWorker(current, worker);
+            }
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error al agregar");

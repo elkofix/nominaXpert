@@ -10,6 +10,11 @@ public class WorkerList {
     public WorkerList() {
     }
 
+    public void editWorker(Worker old,Worker worker){
+        workerList.remove(old);
+        workerList.add(worker);
+    }
+
     public void deleteWorker(Worker worker){
         workerList.remove(worker);
     }

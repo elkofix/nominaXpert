@@ -54,6 +54,10 @@ public class EmployeeController {
     public BorderPane borderPane;
 
 
+
+    @FXML
+    public TableColumn<Worker, Void> editCol;
+
     public WorkerList getWorkerList() {
         return workerList;
     }
@@ -82,13 +86,36 @@ public class EmployeeController {
         this.salaryCol.setCellFactory(column -> new DecimalCell());
         this.workDaysCol.setCellValueFactory(new PropertyValueFactory<>("diasTrabajados"));
         this.starDateCol.setCellValueFactory(new PropertyValueFactory<>("entryDate"));
-        this.deleteColumn.setCellFactory(column -> new TableCell<Worker, Void>() {
+        this.deleteColumn.setCellFactory(column -> new TableCell<>() {
             private final Button button = new Button("Borrar");
+
             {
                 button.setOnAction(event -> {
                     Worker person = getTableRow().getItem();
                     workerList.deleteWorker(person);
                     employeesTB.setItems(workerList.getWorkerList());
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(button);
+                }
+            }
+        });
+        this.editCol.setCellFactory(column -> new TableCell<>() {
+            private final Button button = new Button("Editar");
+            {
+                button.setOnAction(event -> {
+                    Worker person = getTableRow().getItem();
+                    AddEmployeeController con = MainApplication.loadWindow("add-employee-view.fxml").getController();
+                    con.initialize(person, workerList);
+                    Stage stage = (Stage) addBtn.getScene().getWindow();
+                    stage.close();
                 });
             }
             @Override

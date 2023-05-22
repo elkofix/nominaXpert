@@ -14,6 +14,7 @@
             <TableColumn fx:id="workDaysCol" prefWidth="150.20001220703125" text="DIAS TRABAJADOS" />
             <TableColumn fx:id="starDateCol" prefWidth="139.20001220703125" text="FECHA DE ENTRADA" />
             <TableColumn fx:id="deleteColumn" prefWidth="75.0" />
+            <TableColumn fx:id="editCol" prefWidth="75.0" />
             
         </columns>
       </TableView>

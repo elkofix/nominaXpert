@@ -10,6 +10,14 @@ public class Worker {
     private int salary;
     private int diasTrabajados;
 
+    public MANPOWERTYPE getManpowertype() {
+        return manpowertype;
+    }
+
+    public void setManpowertype(MANPOWERTYPE manpowertype) {
+        this.manpowertype = manpowertype;
+    }
+
     private MANPOWERTYPE manpowertype;
     private double sueldoDevengado;
     private double auxTransporte;

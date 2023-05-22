@@ -33,7 +33,7 @@
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin></DatePicker>
-            <Button mnemonicParsing="false" text="Agregar" onAction="#onAddWorker"/>
+            <Button mnemonicParsing="false" text="Agregar" onAction="#onAddWorker" fx:id="addBtn"/>
          </children>
       </VBox>
    </center>

@@ -19,6 +19,9 @@ public class StartController implements Initializable {
     @FXML
     public Button addEmployeeBtn;
 
+
+    @FXML
+    WorkerList workerList;
     @FXML
     public Button liqNominaBtn;
 
