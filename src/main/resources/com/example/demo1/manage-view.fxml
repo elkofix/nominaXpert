@@ -24,7 +24,7 @@
          <children>
             <Button fx:id="addBtn" mnemonicParsing="false" onAction="#onAddEmployee" text="Agregar Empleado" />
             <HBox prefHeight="100.0" prefWidth="200.0" />
-            <Button mnemonicParsing="false" fx:id="backBtn"/>
+            <Button mnemonicParsing="false" fx:id="backBtn" onAction="#onGoBack"/>
          </children>
       </HBox>
    </top>

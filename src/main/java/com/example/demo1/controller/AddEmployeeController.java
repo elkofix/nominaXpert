@@ -124,9 +124,11 @@ public class AddEmployeeController implements Initializable {
         }
     }
 
+
+
     public void onGoBack(ActionEvent actionEvent) {
         EmployeeController con = MainApplication.loadWindow("manage-view.fxml").getController();
-        con.initialize(this.workerList);
+        con.initialize(workerList);
         Stage stage = (Stage) backBtn.getScene().getWindow();
         stage.close();
     }

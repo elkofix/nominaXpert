@@ -211,6 +211,7 @@ public class Worker {
     }
 
     public String getName() {
+        diasTrabajados = java.time.LocalDate.now().getDayOfMonth();
         return name;
     }
 

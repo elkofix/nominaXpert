@@ -14,6 +14,8 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
@@ -58,6 +60,8 @@ public class EmployeeController {
 
     @FXML
     public TableColumn<Worker, Void> editCol;
+    @FXML
+    public Button backBtn;
 
     public WorkerList getWorkerList() {
         return workerList;
@@ -67,6 +71,20 @@ public class EmployeeController {
         System.out.println("Init");
         this.workerList = workerList;
     }
+
+    private void colocarImgBtn(){
+        URL link = getClass().getResource("/img/back.png");
+        Image image = new Image(link.toString(), 30, 30, false, true);
+        backBtn.setGraphic(new ImageView(image));
+    }
+
+    public void onGoBack(ActionEvent actionEvent) {
+        StartController con = MainApplication.loadWindow("start-view.fxml").getController();
+        con.setWorkerList(this.workerList);
+        Stage stage = (Stage) backBtn.getScene().getWindow();
+        stage.close();
+    }
+
 
     private WorkerList workerList;
 
@@ -78,6 +96,7 @@ public class EmployeeController {
     }
 
     public void initialize(WorkerList workerList) {
+        colocarImgBtn();
         this.workerList = workerList;
         this.surnameCol.setCellValueFactory(new PropertyValueFactory<>("lastname"));
         this.nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));

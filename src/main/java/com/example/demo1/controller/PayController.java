@@ -1,16 +1,22 @@
 package com.example.demo1.controller;
 
+import com.example.demo1.MainApplication;
 import com.example.demo1.model.DecimalCell;
 import com.example.demo1.model.MANPOWERTYPE;
 import com.example.demo1.model.Worker;
 import com.example.demo1.model.WorkerList;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -66,6 +72,7 @@ public class PayController implements Initializable {
     public TableColumn<Worker, Double> icbfCol;
     @FXML
     public TableColumn<Worker, Double> parafiscalAportCol;
+    public Button backBtn;
 
     public WorkerList getWorkerList() {
         return workerList;
@@ -81,6 +88,20 @@ public class PayController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         employeeSP.setFitToHeight(true);
         employeeSP.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        colocarImgBtn();
+    }
+
+    private void colocarImgBtn(){
+        URL link = getClass().getResource("/img/back.png");
+        Image image = new Image(link.toString(), 30, 30, false, true);
+        backBtn.setGraphic(new ImageView(image));
+    }
+
+    public void onGoBack(ActionEvent actionEvent) {
+        StartController con = MainApplication.loadWindow("start-view.fxml").getController();
+        con.setWorkerList(this.workerList);
+        Stage stage = (Stage) backBtn.getScene().getWindow();
+        stage.close();
     }
 
     public void initialize(WorkerList workerList) {
