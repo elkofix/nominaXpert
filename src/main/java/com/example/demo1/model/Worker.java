@@ -26,6 +26,59 @@ public class Worker {
     private double pension;
     private double totDeducciones;
     private double pagoNeto;
+
+    public double getSocialSec() {
+        return socialSec;
+    }
+
+    public void setSocialSec(double socialSec) {
+        this.socialSec = socialSec;
+    }
+
+    public double getSocialLoan() {
+        return socialLoan;
+    }
+
+    public void setSocialLoan(double socialLoan) {
+        this.socialLoan = socialLoan;
+    }
+
+    public double getAportes() {
+        return aportes;
+    }
+
+    public void setAportes(double aportes) {
+        this.aportes = aportes;
+    }
+
+    public void setIcbf(double icbf) {
+        this.icbf = icbf;
+    }
+
+    public void setTotParafiscales(double totParafiscales) {
+        this.totParafiscales = totParafiscales;
+    }
+
+    public void setSena(double sena) {
+        this.sena = sena;
+    }
+
+    public double getDevengado() {
+        return devengado;
+    }
+
+    public void setDevengado(double devengado) {
+        this.devengado = devengado;
+    }
+
+    public double getDeduction() {
+        return deduction;
+    }
+
+    public void setDeduction(double deduction) {
+        this.deduction = deduction;
+    }
+
     private double cesantia;
     private double primaLegal;
     private double vacaciones;
@@ -34,9 +87,79 @@ public class Worker {
     private double saludSeguridad;
     private double pensionSeguridad;
     private double atep;
+
+    public void setAuxTransporte(double auxTransporte) {
+        this.auxTransporte = auxTransporte;
+    }
+
+    public void setTotDevengado(double totDevengado) {
+        this.totDevengado = totDevengado;
+    }
+
+    public void setSalud(double salud) {
+        this.salud = salud;
+    }
+
+    public void setPension(double pension) {
+        this.pension = pension;
+    }
+
+    public void setTotDeducciones(double totDeducciones) {
+        this.totDeducciones = totDeducciones;
+    }
+
+    public void setPagoNeto(double pagoNeto) {
+        this.pagoNeto = pagoNeto;
+    }
+
+    public void setCesantia(double cesantia) {
+        this.cesantia = cesantia;
+    }
+
+    public void setPrimaLegal(double primaLegal) {
+        this.primaLegal = primaLegal;
+    }
+
+    public void setVacaciones(double vacaciones) {
+        this.vacaciones = vacaciones;
+    }
+
+    public void setInteresesCS(double interesesCS) {
+        this.interesesCS = interesesCS;
+    }
+
+    public void setTotPrestacionesSo(double totPrestacionesSo) {
+        this.totPrestacionesSo = totPrestacionesSo;
+    }
+
+    public void setSaludSeguridad(double saludSeguridad) {
+        this.saludSeguridad = saludSeguridad;
+    }
+
+    public void setPensionSeguridad(double pensionSeguridad) {
+        this.pensionSeguridad = pensionSeguridad;
+    }
+
+    public void setAtep(double atep) {
+        this.atep = atep;
+    }
+
+    public void setTotSeguridad(double totSeguridad) {
+        this.totSeguridad = totSeguridad;
+    }
+
+    public void setCajaComp(double cajaComp) {
+        this.cajaComp = cajaComp;
+    }
+
     private double totSeguridad;
     private double cajaComp;
     private double sena;
+    private double devengado;
+    private double deduction;
+    private double socialSec;
+    private double socialLoan;
+    private double aportes;
     private double icbf;
 
     public LocalDate getEntryDate() {

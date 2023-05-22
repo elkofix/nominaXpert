@@ -9,46 +9,46 @@
        <ScrollPane fx:id="employeeSP">
           <TableView fx:id="employeeTV" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="702.0" prefWidth="1838.0" BorderPane.alignment="CENTER">
             <columns>
-              <TableColumn prefWidth="75.0" text="APELLIDOS" />
-              <TableColumn prefWidth="75.0" text="NOMBRES" />
-                <TableColumn prefWidth="75.0" text="CARGOS" />
-                <TableColumn prefWidth="101.20001220703125" text="CLASIFICACIÓN" />
+              <TableColumn fx:id="lastnameCol" prefWidth="75.0" text="APELLIDOS" />
+              <TableColumn fx:id="nameCol" prefWidth="75.0" text="NOMBRES" />
+                <TableColumn fx:id="chargeCol" prefWidth="75.0" text="CARGOS" />
+                <TableColumn fx:id="manpoCol" prefWidth="101.20001220703125" text="CLASIFICACIÓN" />
                 <TableColumn prefWidth="75.0" text="Devengado">
                    <columns>
-                      <TableColumn prefWidth="75.0" text="SUELDO" />
-                      <TableColumn prefWidth="75.0" text="AUXTRANS" />
-                      <TableColumn prefWidth="75.0" text="TOTAL" />
+                      <TableColumn fx:id="salaryCol" prefWidth="75.0" text="SUELDO" />
+                      <TableColumn fx:id="auxtransCol" prefWidth="75.0" text="AUXTRANS" />
+                      <TableColumn fx:id="devengaCol" prefWidth="75.0" text="TOTAL" />
                    </columns>
                 </TableColumn>
                 <TableColumn prefWidth="108.20001220703125" text="DEDUCCIONES">
                    <columns>
-                      <TableColumn prefWidth="75.0" text="SALUD" />
-                      <TableColumn prefWidth="75.0" text="PENSIÓN" />
-                      <TableColumn prefWidth="75.0" text="TOTAL" />
+                      <TableColumn fx:id="healthCol" prefWidth="75.0" text="SALUD" />
+                      <TableColumn fx:id="pensionCol" prefWidth="75.0" text="PENSIÓN" />
+                      <TableColumn fx:id="deduCol" prefWidth="75.0" text="TOTAL" />
                    </columns>
                 </TableColumn>
                 <TableColumn prefWidth="75.0" text="SEGURIDAD SOCIAL">
                    <columns>
-                      <TableColumn prefWidth="75.0" text="SALUD" />
-                      <TableColumn prefWidth="75.0" text="PENSIÓN" />
-                      <TableColumn prefWidth="75.0" text="ATEP" />
-                      <TableColumn prefWidth="75.0" text="TOTAL" />
+                      <TableColumn fx:id="healthSCol" prefWidth="75.0" text="SALUD" />
+                      <TableColumn fx:id="pensionSCol" prefWidth="75.0" text="PENSIÓN" />
+                      <TableColumn fx:id="atepSCol" prefWidth="75.0" text="ATEP" />
+                      <TableColumn fx:id="socialSecCol" prefWidth="75.0" text="TOTAL" />
                    </columns></TableColumn>
                 <TableColumn maxWidth="1.7976931348623157E308" prefWidth="367.0" text="PRESTACIONES SOCIALES">
                    <columns>
-                      <TableColumn prefWidth="75.0" text="CESANTÍA" />
-                      <TableColumn prefWidth="88.79998779296875" text="PRIMA LEGAL" />
-                      <TableColumn prefWidth="84.0" text="VACACIONES" />
-                      <TableColumn prefWidth="86.2000732421875" text="INTERESES CS" />
-                      <TableColumn prefWidth="45.7999267578125" text="TOTAL" />
+                      <TableColumn fx:id="censantiaCol" prefWidth="75.0" text="CESANTÍA" />
+                      <TableColumn fx:id="primaCol" prefWidth="88.79998779296875" text="PRIMA LEGAL" />
+                      <TableColumn fx:id="vacationCol" prefWidth="84.0" text="VACACIONES" />
+                      <TableColumn fx:id="interesesCol" prefWidth="86.2000732421875" text="INTERESES CS" />
+                      <TableColumn fx:id="socialLoanCol" prefWidth="45.7999267578125" text="TOTAL" />
                    </columns>
                 </TableColumn>
                 <TableColumn prefWidth="75.0" text="APORTES PARAFISCALES">
                    <columns>
-                      <TableColumn prefWidth="75.0" text="CAJA COMP" />
-                      <TableColumn prefWidth="75.0" text="SENA" />
-                      <TableColumn prefWidth="75.0" text="ICBF" />
-                      <TableColumn prefWidth="75.0" text="TOTAL" />
+                      <TableColumn fx:id="cajacomCol" prefWidth="75.0" text="CAJA COMP" />
+                      <TableColumn fx:id="senaCol" prefWidth="75.0" text="SENA" />
+                      <TableColumn fx:id="icbfCol" prefWidth="75.0" text="ICBF" />
+                      <TableColumn fx:id="parafiscalAportCol" prefWidth="75.0" text="TOTAL" />
                    </columns>
                 </TableColumn>
             </columns>

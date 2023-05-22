@@ -49,8 +49,8 @@ public class StartController implements Initializable {
     }
 
     public void onManageEmployee(ActionEvent actionEvent) {
-        AddEmployeeController a = MainApplication.loadWindow("employee-view.fxml").getController();
-        a.setWorkerList(new WorkerList());
+        PayController a = MainApplication.loadWindow("employee-view.fxml").getController();
+        a.initialize(Objects.requireNonNullElseGet(workerList, WorkerList::new));
         Stage stage = (Stage) liqNominaBtn.getScene().getWindow();
         stage.close();
     }
