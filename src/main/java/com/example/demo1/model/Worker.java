@@ -311,8 +311,8 @@ public class Worker {
     }
 
     public double getSaludSeguridad() {
-        double saludSeguridad = 0;
-        if (getSueldoDevengado() < 11600000) {
+        double saludSeguridad;
+        if ((int) getSueldoDevengado() < 11600000) {
             saludSeguridad = 0;
         } else {
             saludSeguridad = getSueldoDevengado() * 0.04;
