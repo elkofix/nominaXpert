@@ -191,6 +191,9 @@ public class Worker {
         } else if (n.length == 3) {
             this.name = n[0].toUpperCase();
             this.lastname = (n[1] + " " + n[2]).toUpperCase();
+        }else if (n.length == 2) {
+            this.name = n[0].toUpperCase();
+            this.lastname = (n[1]).toUpperCase();
         }
         this.risk = risk;
         this.manpowertype = manpowertype;
