@@ -315,7 +315,7 @@ public class Worker {
         if ((int) getSueldoDevengado() < 11600000) {
             saludSeguridad = 0;
         } else {
-            saludSeguridad = getSueldoDevengado() * 0.04;
+            saludSeguridad = getSueldoDevengado() * 0.085;
         }
         return saludSeguridad;
     }
