@@ -175,17 +175,17 @@ public class Worker {
 
     public Worker(String name, String cargo, double sueldo, LocalDate entryDate, MANPOWERTYPE manpowertype) {
         String[] n = name.split(" ");
-        if(n.length==4){
-            this.name = (n[0]+" "+n[1]).toUpperCase();
-            this.lastname = (n[2]+" "+n[3]).toUpperCase();
-        } else if (n.length==3) {
+        if (n.length == 4) {
+            this.name = (n[0] + " " + n[1]).toUpperCase();
+            this.lastname = (n[2] + " " + n[3]).toUpperCase();
+        } else if (n.length == 3) {
             this.name = n[0].toUpperCase();
-            this.lastname = (n[1]+" "+n[2]).toUpperCase();
+            this.lastname = (n[1] + " " + n[2]).toUpperCase();
         }
         this.manpowertype = manpowertype;
         this.entryDate = entryDate;
         this.charge = cargo.toUpperCase();
-        this.salary =(int)sueldo;
+        this.salary = (int) sueldo;
         LocalDate date = java.time.LocalDate.now();
         this.diasTrabajados = date.getDayOfMonth();
         this.sueldoDevengado = getSueldoDevengado();
@@ -272,7 +272,7 @@ public class Worker {
     }
 
     public double getVacaciones() {
-        return getSalary() * 0.0417;
+        return getSueldoDevengado() * 0.0417;
     }
 
     public double getInteresesCS() {
@@ -318,11 +318,11 @@ public class Worker {
     }
 
     public double getPensionSeguridad() {
-        return getSalary() * 0.12;
+        return getSueldoDevengado() * 0.12;
     }
 
     public double getAtep() {
-        return getSalary() * 0.02436;
+        return getSueldoDevengado() * 0.02436;
     }
 
     public double getTotSeguridad() {
@@ -330,15 +330,27 @@ public class Worker {
     }
 
     public double getCajaComp() {
-        return getSalary() * 0.04;
+        return getSueldoDevengado() * 0.04;
     }
 
     public double getSena() {
-        return getSalary() * 0.02;
+        double sena = 0;
+        if (getSueldoDevengado() < 11600000) {
+            sena = 0;
+        } else {
+            sena = getSueldoDevengado() * 0.02;
+        }
+        return sena;
     }
 
     public double getIcbf() {
-        return getSalary() * 0.03;
+        double icbf = 0;
+        if (getSueldoDevengado() < 11600000) {
+            icbf = 0;
+        } else {
+            icbf = getSueldoDevengado() * 0.03;
+        }
+        return icbf;
     }
 
     public double getTotParafiscales() {
