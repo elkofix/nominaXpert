@@ -1,10 +1,7 @@
 package com.example.demo1.controller;
 
 import com.example.demo1.MainApplication;
-import com.example.demo1.model.DecimalCell;
-import com.example.demo1.model.FileManager;
-import com.example.demo1.model.Worker;
-import com.example.demo1.model.WorkerList;
+import com.example.demo1.model.*;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -62,6 +59,7 @@ public class EmployeeController {
     public TableColumn<Worker, Void> editCol;
     @FXML
     public Button backBtn;
+    public TableColumn<Worker, RISK> riesgoCol;
 
     public WorkerList getWorkerList() {
         return workerList;
@@ -105,6 +103,7 @@ public class EmployeeController {
         this.salaryCol.setCellFactory(column -> new DecimalCell());
         this.workDaysCol.setCellValueFactory(new PropertyValueFactory<>("diasTrabajados"));
         this.starDateCol.setCellValueFactory(new PropertyValueFactory<>("entryDate"));
+        this.riesgoCol.setCellValueFactory(new PropertyValueFactory<>("risk"));
         this.deleteColumn.setCellFactory(column -> new TableCell<>() {
             private final Button button = new Button("Borrar");
 

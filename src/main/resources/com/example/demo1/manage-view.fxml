@@ -13,6 +13,7 @@
             <TableColumn fx:id="salaryCol" prefWidth="115.60000610351562" text="SALARIO" />
             <TableColumn fx:id="workDaysCol" prefWidth="150.20001220703125" text="DIAS TRABAJADOS" />
             <TableColumn fx:id="starDateCol" prefWidth="139.20001220703125" text="FECHA DE ENTRADA" />
+            <TableColumn fx:id="riesgoCol" prefWidth="75.0" text="RIESGO" />
             <TableColumn fx:id="deleteColumn" prefWidth="75.0" />
             <TableColumn fx:id="editCol" prefWidth="75.0" />
             
@@ -24,7 +25,7 @@
          <children>
             <Button fx:id="addBtn" mnemonicParsing="false" onAction="#onAddEmployee" text="Agregar Empleado" />
             <HBox prefHeight="100.0" prefWidth="200.0" />
-            <Button mnemonicParsing="false" fx:id="backBtn" onAction="#onGoBack"/>
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#onGoBack" />
          </children>
       </HBox>
    </top>

@@ -28,17 +28,18 @@
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin></ComboBox>
+            <ComboBox fx:id="riesgoCB" prefWidth="150.0" promptText="Clase Riesgos" />
             <Label text="Fecha de entrada" />
             <DatePicker fx:id="entryDateDP">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin></DatePicker>
-            <Button mnemonicParsing="false" text="Agregar" onAction="#onAddWorker" fx:id="addBtn"/>
+            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#onAddWorker" text="Agregar" />
          </children>
       </VBox>
    </center>
    <top>
-      <Button fx:id="backBtn" onAction="#onGoBack" mnemonicParsing="false" BorderPane.alignment="TOP_RIGHT">
+      <Button fx:id="backBtn" mnemonicParsing="false" onAction="#onGoBack" BorderPane.alignment="TOP_RIGHT">
          <BorderPane.margin>
             <Insets right="10.0" top="10.0" />
          </BorderPane.margin>

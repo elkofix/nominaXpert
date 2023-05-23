@@ -15,8 +15,8 @@ public class WorkerAdapter implements JsonSerializer<Worker>, JsonDeserializer<W
         jsonObject.addProperty("sueldo", worker.getSalary());
         jsonObject.addProperty("entryDate", worker.getEntryDate().toString());
         jsonObject.addProperty("manpowertype", worker.getManpowertype().toString());
+        jsonObject.addProperty("risk", worker.getRisk().toString());
         // Serializar otros atributos de la clase Worker aquí
-
         return jsonObject;
     }
 
@@ -29,9 +29,10 @@ public class WorkerAdapter implements JsonSerializer<Worker>, JsonDeserializer<W
         double sueldo = jsonObject.get("sueldo").getAsDouble();
         LocalDate entryDate = LocalDate.parse(jsonObject.get("entryDate").getAsString());
         MANPOWERTYPE manpowertype = MANPOWERTYPE.valueOf(jsonObject.get("manpowertype").getAsString());
+        RISK risk = RISK.valueOf(jsonObject.get("risk").getAsString());
         // Deserializar otros atributos de la clase Worker aquí
 
-        Worker worker = new Worker(name, cargo, sueldo, entryDate, manpowertype);
+        Worker worker = new Worker(name, cargo, sueldo, entryDate, manpowertype,risk);
         // Establecer otros atributos de la clase Worker aquí
 
         return worker;

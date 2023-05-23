@@ -2,10 +2,7 @@ package com.example.demo1.controller;
 
 import com.example.demo1.MainApplication;
 import com.example.demo1.exceptions.LowSalaryException;
-import com.example.demo1.model.FileManager;
-import com.example.demo1.model.MANPOWERTYPE;
-import com.example.demo1.model.Worker;
-import com.example.demo1.model.WorkerList;
+import com.example.demo1.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,7 +31,10 @@ public class AddEmployeeController implements Initializable {
 
     @FXML
     public DatePicker entryDateDP;
+    @FXML
     public Button addBtn;
+    @FXML
+    public ComboBox<RISK> riesgoCB;
 
     private boolean edit;
 
@@ -54,6 +54,11 @@ public class AddEmployeeController implements Initializable {
         manoObraCB.setItems(list);
         manoObraCB.setPromptText("Elija el tipo de mano de obra");
         manoObraCB.getSelectionModel().selectedItemProperty().addListener((value, old, nu)->{
+        });
+        ObservableList<RISK> last = FXCollections.observableArrayList(RISK.I, RISK.II, RISK.III, RISK.IV, RISK.V);
+        riesgoCB.setItems(last);
+        riesgoCB.setPromptText("Elija clase riesgo");
+        riesgoCB.getSelectionModel().selectedItemProperty().addListener((value, old, nu)->{
         });
     }
 
@@ -99,11 +104,12 @@ public class AddEmployeeController implements Initializable {
         String salary = salaryTF.getText();
         LocalDate entryDate = entryDateDP.getValue();
         MANPOWERTYPE type = manoObraCB.getValue();
+        RISK risk = riesgoCB.getValue();
         try {
             if (Double.parseDouble(salary) < 1160000) {
                 throw new LowSalaryException("El salario debe ser mayor o igual a 1.160.000");
             }
-            Worker worker = new Worker(fullName, charge, Double.parseDouble(salary), entryDate, type);
+            Worker worker = new Worker(fullName, charge, Double.parseDouble(salary), entryDate, type, risk);
             if(!edit){
                 workerList.addWorker(worker);
             }else{

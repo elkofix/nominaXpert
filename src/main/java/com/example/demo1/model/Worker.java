@@ -173,7 +173,17 @@ public class Worker {
     private LocalDate entryDate;
     private double totParafiscales;
 
-    public Worker(String name, String cargo, double sueldo, LocalDate entryDate, MANPOWERTYPE manpowertype) {
+    public RISK getRisk() {
+        return risk;
+    }
+
+    public void setRisk(RISK risk) {
+        this.risk = risk;
+    }
+
+    private RISK risk;
+
+    public Worker(String name, String cargo, double sueldo, LocalDate entryDate, MANPOWERTYPE manpowertype, RISK risk) {
         String[] n = name.split(" ");
         if (n.length == 4) {
             this.name = (n[0] + " " + n[1]).toUpperCase();
@@ -182,6 +192,7 @@ public class Worker {
             this.name = n[0].toUpperCase();
             this.lastname = (n[1] + " " + n[2]).toUpperCase();
         }
+        this.risk = risk;
         this.manpowertype = manpowertype;
         this.entryDate = entryDate;
         this.charge = cargo.toUpperCase();
@@ -325,7 +336,20 @@ public class Worker {
     }
 
     public double getAtep() {
-        return getSueldoDevengado() * 0.02436;
+        switch (risk){
+            case I:
+                return getSueldoDevengado() * 0.00522;
+            case II:
+                return getSueldoDevengado() * 0.01044;
+            case III:
+                return getSueldoDevengado() * 0.02436;
+            case IV:
+                return getSueldoDevengado() * 0.0435;
+            case V:
+                return getSueldoDevengado() * 0.0696;
+            default:
+                return 0;
+        }
     }
 
     public double getTotSeguridad() {
