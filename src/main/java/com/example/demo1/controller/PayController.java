@@ -284,7 +284,7 @@ public class PayController implements Initializable {
             cell = row.createCell(colNum);
             cell.setCellStyle(accountingStyle);
             cell.setCellValue(persona.getAtep());
-            sheet.autoSizeColumn(colNum);
+            sheet.autoSizeColumn(colNum++);
 
             cell = row.createCell(colNum);
             cell.setCellStyle(accountingStyle);

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -57,9 +58,12 @@
    <top>
       <HBox prefHeight="27.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Exportar Excel" onAction="#onGenerateExcel"/>
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#onGoBack">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Button>
             <HBox prefHeight="100.0" prefWidth="200.0" />
-            <Button mnemonicParsing="false" fx:id="backBtn" onAction="#onGoBack"/>
+            <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#onGenerateExcel" text="Exportar Excel" />
          </children></HBox>
    </top>
 </BorderPane>

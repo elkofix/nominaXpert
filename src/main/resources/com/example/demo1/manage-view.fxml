@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -23,9 +24,12 @@
    <top>
       <HBox prefHeight="23.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#onAddEmployee" text="Agregar Empleado" />
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#onGoBack">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Button>
             <HBox prefHeight="100.0" prefWidth="200.0" />
-            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#onGoBack" />
+            <Button fx:id="addBtn" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAddEmployee" text="Agregar Empleado" />
          </children>
       </HBox>
    </top>

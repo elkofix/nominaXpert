@@ -35,6 +35,7 @@ public class AddEmployeeController implements Initializable {
     public Button addBtn;
     @FXML
     public ComboBox<RISK> riesgoCB;
+    public Label alert;
 
     private boolean edit;
 
@@ -111,13 +112,30 @@ public class AddEmployeeController implements Initializable {
                 throw new LowSalaryException("El salario debe ser mayor o igual a 1.160.000");
             }
             Worker worker = new Worker(fullName, charge, Double.parseDouble(salary), entryDate, type, risk);
-            if(!edit){
+            if (!edit) {
                 workerList.addWorker(worker);
-            }else{
+                alert.setStyle("-fx-text-fill: GREEN");
+                alert.setText("Usuario registrado exitosamente");
+                fullNameTF.setText("");
+                chargeTF.setText("");
+                salaryTF.setText("");
+                entryDateDP.setValue(null);
+                manoObraCB.setValue(null);
+                riesgoCB.setValue(null);
+            } else {
                 workerList.editWorker(current, worker);
+                alert.setStyle("-fx-text-fill: GREEN");
+                alert.setText("Usuario editado exitosamente");
+                fullNameTF.setText("");
+                chargeTF.setText("");
+                salaryTF.setText("");
+                entryDateDP.setValue(null);
+                manoObraCB.setValue(null);
+                riesgoCB.setValue(null);
             }
             FileManager.setWorkerList(workerList);
             FileManager.saveData();
+
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error al agregar");

@@ -8,6 +8,7 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
+            <Label fx:id="alert" />
             <Label text="Nombre Completo" textAlignment="JUSTIFY" />
             <TextField fx:id="fullNameTF">
                <VBox.margin>
@@ -39,9 +40,9 @@
       </VBox>
    </center>
    <top>
-      <Button fx:id="backBtn" mnemonicParsing="false" onAction="#onGoBack" BorderPane.alignment="TOP_RIGHT">
+      <Button fx:id="backBtn" mnemonicParsing="false" onAction="#onGoBack" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
-            <Insets right="10.0" top="10.0" />
+            <Insets left="10.0" top="10.0" />
          </BorderPane.margin>
       </Button>
    </top>
