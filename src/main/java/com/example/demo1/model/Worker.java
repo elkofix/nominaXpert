@@ -232,7 +232,10 @@ public class Worker {
     }
 
     public double getSueldoDevengado() {
-        return (getSalary() * getDiasTrabajados()) / 30;
+        double salario = getSalary();
+        double sueldoDevengado = salario * getDiasTrabajados();
+        double totSueldoDevengado = sueldoDevengado / 30;
+        return totSueldoDevengado;
     }
 
     public double getAuxTransporte() {
@@ -334,7 +337,7 @@ public class Worker {
     }
 
     public double getSena() {
-        double sena = 0;
+        double sena;
         if (getSueldoDevengado() < 11600000) {
             sena = 0;
         } else {
@@ -344,7 +347,7 @@ public class Worker {
     }
 
     public double getIcbf() {
-        double icbf = 0;
+        double icbf;
         if (getSueldoDevengado() < 11600000) {
             icbf = 0;
         } else {
