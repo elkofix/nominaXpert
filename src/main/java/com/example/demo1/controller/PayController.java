@@ -122,7 +122,7 @@ public class PayController implements Initializable {
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         chargeCol.setCellValueFactory(new PropertyValueFactory<>("charge"));
         manpoCol.setCellValueFactory(new PropertyValueFactory<>("manpowertype"));
-        this.salaryCol.setCellValueFactory(data -> new SimpleDoubleProperty(data.getValue().getTotDevengado()).asObject());
+        this.salaryCol.setCellValueFactory(data -> new SimpleDoubleProperty(data.getValue().getSueldoDevengado()).asObject());
         this.salaryCol.setCellFactory(column -> new DecimalCell());
         this.auxtransCol.setCellValueFactory(data -> new SimpleDoubleProperty(data.getValue().getAuxTransporte()).asObject());
         this.auxtransCol.setCellFactory(column -> new DecimalCell());
@@ -243,7 +243,7 @@ public class PayController implements Initializable {
 
             cell = row.createCell(colNum);
             cell.setCellStyle(accountingStyle);
-            cell.setCellValue(persona.getTotDevengado());
+            cell.setCellValue(persona.getSueldoDevengado());
             sheet.autoSizeColumn(colNum++);
 
             cell = row.createCell(colNum);
