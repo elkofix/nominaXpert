@@ -66,10 +66,11 @@ public class AddEmployeeController implements Initializable {
         initialize(workerList);
         fullNameTF.setText(worker.getName()+" "+worker.getLastname());
         chargeTF.setText(worker.getCharge());
-        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+        DecimalFormat decimalFormat = new DecimalFormat("#");
         salaryTF.setText(decimalFormat.format(worker.getSalary()));
         entryDateDP.setValue(worker.getEntryDate());
         manoObraCB.setValue(worker.getManpowertype());
+        riesgoCB.setValue(worker.getRisk());
         current = worker;
         edit = true;
         addBtn.setText("Confirmar");
