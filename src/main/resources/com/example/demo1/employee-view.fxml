@@ -57,7 +57,7 @@
    <top>
       <HBox prefHeight="27.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Exportar Excel" />
+            <Button mnemonicParsing="false" text="Exportar Excel" onAction="#onGenerateExcel"/>
             <HBox prefHeight="100.0" prefWidth="200.0" />
             <Button mnemonicParsing="false" fx:id="backBtn" onAction="#onGoBack"/>
          </children></HBox>

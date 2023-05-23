@@ -6,7 +6,6 @@ import com.example.demo1.model.WorkerList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
