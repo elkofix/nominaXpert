@@ -63,6 +63,11 @@
                   <Insets />
                </HBox.margin></Button>
             <HBox prefHeight="100.0" prefWidth="200.0" />
+            <Button onAction="#onViewMO" fx:id="resumeBtn" maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Ver resumen MO">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
             <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#onGenerateExcel" text="Exportar Excel" />
          </children></HBox>
    </top>

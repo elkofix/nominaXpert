@@ -1,6 +1,8 @@
 package com.example.demo1.controller;
 
+import javafx.scene.control.*;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -15,10 +17,6 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,6 +26,7 @@ import java.io.OutputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 public class PayController implements Initializable {
@@ -81,7 +80,10 @@ public class PayController implements Initializable {
     public TableColumn<Worker, Double> icbfCol;
     @FXML
     public TableColumn<Worker, Double> parafiscalAportCol;
+    @FXML
     public Button backBtn;
+    @FXML
+    public Button resumeBtn;
 
     public WorkerList getWorkerList() {
         return workerList;
@@ -162,6 +164,26 @@ public class PayController implements Initializable {
         this.parafiscalAportCol.setCellValueFactory(data -> new SimpleDoubleProperty(data.getValue().getTotParafiscales()).asObject());
         this.parafiscalAportCol.setCellFactory(column -> new DecimalCell());
         this.employeeTV.setItems(this.workerList.getWorkerList());
+    }
+
+    public void onViewMO(){
+        double moi = 0;
+        double mod = 0;
+        for (Worker worker: this.workerList.getWorkerList()) {
+            if(worker.getManpowertype().equals(MANPOWERTYPE.DIRECTA)){
+                mod+= worker.getTotDevengado() -worker.getTotDeducciones();
+            }else {
+                moi = worker.getTotDevengado() -worker.getTotDeducciones();
+            }
+        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Resumen de Mano de obra");
+        alert.setHeaderText("Resumen");
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+        alert.setContentText("Total mano de obra directa: "+decimalFormat.format(mod) +"\n"+
+                "Total de mano de obra indirecta: "+decimalFormat.format(moi));
+        alert.showAndWait();
+
     }
 
     public void onGenerateExcel(){
